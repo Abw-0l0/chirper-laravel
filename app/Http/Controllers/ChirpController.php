@@ -58,7 +58,7 @@ class ChirpController extends Controller
      */
     public function edit(Chirp $chirp)
     {
-        if ($chirp->user_id !== auth()->id()) {
+        if ($chirp->user_id != auth()->id()) {
             abort(403, 'Unauthorized');
         }
 
@@ -70,7 +70,7 @@ class ChirpController extends Controller
      */
     public function update(Request $request, Chirp $chirp)
     {
-        if ($chirp->user_id !== auth()->id()) {
+        if ($chirp->user_id != auth()->id()) {
             abort(403, 'Unauthorized');
         }
 
@@ -90,7 +90,7 @@ class ChirpController extends Controller
      */
     public function destroy(Chirp $chirp)
     {
-        if ($chirp->user_id !== auth()->id()) {
+        if ($chirp->user_id != auth()->id()) {
             abort(403, 'Unauthorized');
         }
 
