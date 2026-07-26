@@ -6,6 +6,7 @@ namespace App\Models;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -29,4 +30,20 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function chirps(): HasMany
+    {
+        return $this->hasMany(Chirp::class);
+    }
 }
+
+// $user= \App\Models\User::factory()->create([
+//     'name' => 'Test User',
+//     'email' => 'test@example.com',
+//     'password' => bcrypt('password'),
+// ]);
+
+// $chirp = $user->chirps()->create([
+//     'user_id' => $user->id,
+//     'message' => 'This is a test chirp. made by tinker',
+// ]);
